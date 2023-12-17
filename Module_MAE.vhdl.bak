@@ -1,0 +1,64 @@
+-- =============================================================================
+-- Module MAE (Machine A Etats)
+--     pour séquencer par un automate le fonctionnement du filtre FIR
+-- -----------------------------------------------------------------------------
+-- GEII S5 ESE - IUT de Chartres
+
+
+-- =============================================================================
+-- Librairies Utilisées
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use work.FIR_pkg.all;
+
+
+-- =============================================================================
+-- Déclaration de la Structure
+
+entity MAE is
+	port (
+		H_MAE:		in		std_logic;	-- Horloge pour la machine à états
+		RAZ:			in		std_logic;	-- Mise à zéro synchrone de la machine à états
+		H_FIFO:		out	std_logic;	-- Horloge pour la mémorisation synchrone d'une entrée
+		H_MAC:		out	std_logic;	-- Horloge pour mettre à jour de la somme pondérée
+		H_REG:		out	std_logic;	-- Horloge pour mémoriser la valeur de la tension en sortie
+		indice:		out	tIndex		-- Indice d'un coefficient et d'une valeur de tension mémorisée
+	);
+end entity;
+
+
+-- =============================================================================
+-- Description du Comportement
+
+architecture arch_MAE of MAE is
+
+-- Machine à Etats avec Codage Symbolique des Etats
+type   tEtat is (ETAT_0, ETAT_1, ETAT_2, ETAT_3, ETAT_4, ETAT_5, ETAT_6, ETAT_7, ETAT_8, ETAT_9, ETAT_10);
+signal etat: tEtat;
+
+begin
+
+	-- ..........................................................................
+	-- Evolution des états
+	--
+
+
+	-- ..........................................................................
+	-- Activité des Sorties
+	--
+
+	-- Machine de Moore : Equation Indépendante des Entrées
+	indice <= 0;
+
+	--     Machine de Mealy : Equations Dépendantes des Entrées
+	H_FIFO <= '0';
+	H_MAC  <= '0';
+	H_REG  <= '0';
+
+end arch_MAE;
+
+
+-- =============================================================================

@@ -1,0 +1,189 @@
+# Reading pref.tcl
+# ERROR: No extended dataflow license exists
+# do Filtre_FIR_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/Logiciel/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_package.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:02 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_package.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package FIR_pkg
+# End time: 11:34:02 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:03 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity Filtre_FIR
+# -- Compiling architecture arch_Filtre_FIR of Filtre_FIR
+# End time: 11:34:04 on Dec 17,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_DIV.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:04 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_DIV.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity DIV
+# -- Compiling architecture arch_DIV of DIV
+# End time: 11:34:04 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAE.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:04 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAE.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity MAE
+# -- Compiling architecture arch_MAE of MAE
+# End time: 11:34:04 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_FIFO.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:04 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_FIFO.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity FIFO
+# -- Compiling architecture arch_FIFO of FIFO
+# End time: 11:34:04 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:04 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity MAC
+# -- Compiling architecture arch_MAC of MAC
+# End time: 11:34:05 on Dec 17,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:05 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package FIR_pkg
+# -- Compiling entity REG
+# -- Compiling architecture arch_REG of REG
+# End time: 11:34:05 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_tb.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:34:05 on Dec 17,2023
+# vcom -reportprogress 300 -93 -work work D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_tb.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package FIR_pkg
+# -- Compiling entity Filtre_FIR_tb
+# -- Compiling architecture tb of Filtre_FIR_tb
+# -- Loading entity Filtre_FIR
+# ** Warning: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_tb.vhdl(56): (vcom-1013) Initial value of "pulsation" depends on value of signal "frequence".
+# End time: 11:34:05 on Dec 17,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  Filtre_FIR_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" Filtre_FIR_tb 
+# Start time: 11:34:05 on Dec 17,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fir_pkg
+# Loading work.filtre_fir_tb(tb)
+# Loading work.filtre_fir(arch_filtre_fir)
+# Loading work.div(arch_div)
+# Loading work.mae(arch_mae)
+# Loading work.fifo(arch_fifo)
+# Loading work.mac(arch_mac)
+# Loading work.reg(arch_reg)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 13 ms
+# ** Error: XLOCAL <= 0.0 after reduction in SIN(X)
+#    Time: 4250 us  Iteration: 1  Instance: /filtre_fir_tb
+# ** Error: XLOCAL <= 0.0 after reduction in SIN(X)
+#    Time: 4255 us  Iteration: 1  Instance: /filtre_fir_tb
+do Filtre_FIR.sft
+# ModelSim-Altera (VHDL)
+do Filtre_FIR.do
+# End time: 11:35:39 on Dec 17,2023, Elapsed time: 0:01:34
+# Errors: 2, Warnings: 0
+# vsim rtl_work.Filtre_FIR_tb(tb) 
+# Start time: 11:35:39 on Dec 17,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading rtl_work.fir_pkg
+# Loading rtl_work.filtre_fir_tb(tb)
+# Loading rtl_work.filtre_fir(arch_filtre_fir)
+# Loading rtl_work.div(arch_div)
+# Loading rtl_work.mae(arch_mae)
+# Loading rtl_work.fifo(arch_fifo)
+# Loading rtl_work.mac(arch_mac)
+# Loading rtl_work.reg(arch_reg)
+# WARNING: No extended dataflow license exists
+do Filtre_FIR.do
+# End time: 11:38:20 on Dec 17,2023, Elapsed time: 0:02:41
+# Errors: 0, Warnings: 0
+# vsim rtl_work.Filtre_FIR_tb(tb) 
+# Start time: 11:38:20 on Dec 17,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading rtl_work.fir_pkg
+# Loading rtl_work.filtre_fir_tb(tb)
+# Loading rtl_work.filtre_fir(arch_filtre_fir)
+# Loading rtl_work.div(arch_div)
+# Loading rtl_work.mae(arch_mae)
+# Loading rtl_work.fifo(arch_fifo)
+# Loading rtl_work.mac(arch_mac)
+# Loading rtl_work.reg(arch_reg)
+# WARNING: No extended dataflow license exists
+# End time: 12:04:20 on Dec 17,2023, Elapsed time: 0:26:00
+# Errors: 0, Warnings: 0

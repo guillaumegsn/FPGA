@@ -1,0 +1,37 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'DIV:uDIV|horloge'
+Slack : -193.243
+TNS   : -3497.317
+
+Type  : Setup 'H_10MHz'
+Slack : -6.367
+TNS   : -20.357
+
+Type  : Hold 'DIV:uDIV|horloge'
+Slack : -8.687
+TNS   : -54.002
+
+Type  : Hold 'H_10MHz'
+Slack : 1.253
+TNS   : 0.000
+
+Type  : Recovery 'DIV:uDIV|horloge'
+Slack : -7.813
+TNS   : -81.394
+
+Type  : Removal 'DIV:uDIV|horloge'
+Slack : 0.814
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'H_10MHz'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'DIV:uDIV|horloge'
+Slack : 0.161
+TNS   : 0.000
+
+------------------------------------------------------------

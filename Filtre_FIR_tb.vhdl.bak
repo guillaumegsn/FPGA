@@ -1,0 +1,71 @@
+-- =============================================================================
+-- Banc d'Essai pour le Projet Filtre_FIR
+-- -----------------------------------------------------------------------------
+-- GEII S5 ESE - IUT de Chartres
+
+
+-- =============================================================================
+-- Librairies Utilisées
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+use ieee.math_real.all;
+
+
+use work.FIR_pkg.all;
+
+
+-- =============================================================================
+-- Déclaration de la Structure
+
+entity Filtre_FIR_tb is
+end Filtre_FIR_tb;
+
+
+-- =============================================================================
+-- Description du Comportement
+
+architecture tb of Filtre_FIR_tb is
+
+-- Gestion du temps
+constant TH_10MHz:time	:= 1.0 sec / real(F_10MHz);	-- Période de l'horloge du kit MAX V à 10 MHz
+signal 	H_10MHz:	std_logic   := '0';		-- Horloge du kit MAX V à 10 MHz
+
+-- Initialisation
+constant DT_RAZ: 	time	:= 5 us;				-- Durée de la phase d'initialisation par une remise à zéro
+constant t0: 		real 	:= real(DT_RAZ / sec);			-- Instant initial
+signal 	RAZ:		std_logic	:= '0';		-- Mise à zéro des valeurs mémorisées (si RAZ à 1)
+
+-- Valeur des signaux en entrée et en sortie
+signal 	entree:	tData := 0;					-- Valeur en entrée à mémoriser
+signal 	sortie:	tData	:= 0;					-- Valeur en sortie
+
+begin
+
+
+	-- ..........................................................................
+	-- Connexion des signaux du banc de test (testbench)
+	--     au composant testé (DUT = Device Under Test)
+
+	DUT : entity work.Filtre_FIR port map (H_10MHz, RAZ,
+														entree,
+														sortie);
+
+
+	-- ..........................................................................
+	-- Horloge 10 MHz
+	
+	process begin
+		H_10MHz <= '1';
+		wait for TH_10MHz/2;
+		H_10MHz <= '0';
+		wait for TH_10MHz/2;
+	end process;
+
+	
+end tb;
+
+
+-- =============================================================================

@@ -1,0 +1,844 @@
+Analysis & Synthesis report for Filtre_FIR
+Sun Dec 17 11:33:22 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Filtre_FIR|MAE:uMAE|etat
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for Inferred Entity Instance: REG:uREG|lpm_divide:Div0
+ 14. Parameter Settings for Inferred Entity Instance: MAC:uMAC|lpm_mult:Mult0
+ 15. lpm_mult Parameter Settings by Entity Instance
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Dec 17 11:33:21 2023       ;
+; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name               ; Filtre_FIR                                  ;
+; Top-level Entity Name       ; Filtre_FIR                                  ;
+; Family                      ; MAX V                                       ;
+; Total logic elements        ; 550                                         ;
+; Total pins                  ; 18                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 5M570ZF256C5       ;                    ;
+; Top-level entity name                                            ; Filtre_FIR         ; Filtre_FIR         ;
+; Family name                                                      ; MAX V              ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; Filtre_FIR.vhdl                  ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl         ;         ;
+; Filtre_FIR_package.vhdl          ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_package.vhdl ;         ;
+; Module_DIV.vhdl                  ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_DIV.vhdl         ;         ;
+; Module_MAE.vhdl                  ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAE.vhdl         ;         ;
+; Module_FIFO.vhdl                 ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_FIFO.vhdl        ;         ;
+; Module_MAC.vhdl                  ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl         ;         ;
+; Module_REG.vhdl                  ; yes             ; User VHDL File               ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/lpm_divide.tdf                               ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/abs_divider.inc                              ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/sign_div_unsign.inc                          ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/aglobal201.inc                               ;         ;
+; db/lpm_divide_8co.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_divide_8co.tdf   ;         ;
+; db/abs_divider_obg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/abs_divider_obg.tdf  ;         ;
+; db/alt_u_div_pie.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/alt_u_div_pie.tdf    ;         ;
+; db/add_sub_i4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_i4c.tdf      ;         ;
+; db/add_sub_j4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_j4c.tdf      ;         ;
+; db/add_sub_p4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_p4c.tdf      ;         ;
+; db/add_sub_k4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_k4c.tdf      ;         ;
+; db/add_sub_l4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_l4c.tdf      ;         ;
+; db/add_sub_m4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_m4c.tdf      ;         ;
+; db/add_sub_n4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_n4c.tdf      ;         ;
+; db/add_sub_o4c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_o4c.tdf      ;         ;
+; db/lpm_abs_fa9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_abs_fa9.tdf      ;         ;
+; db/lpm_abs_vb9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_abs_vb9.tdf      ;         ;
+; db/add_sub_vte.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_vte.tdf      ;         ;
+; db/add_sub_fse.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_fse.tdf      ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/lpm_mult.tdf                                 ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/lpm_add_sub.inc                              ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/multcore.inc                                 ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/bypassff.inc                                 ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/logiciel/quartus/libraries/megafunctions/altshift.inc                                 ;         ;
+; db/mult_ies.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/mult_ies.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Total logic elements                        ; 550             ;
+;     -- Combinational with no register       ; 419             ;
+;     -- Register only                        ; 93              ;
+;     -- Combinational with a register        ; 38              ;
+;                                             ;                 ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 108             ;
+;     -- 3 input functions                    ; 151             ;
+;     -- 2 input functions                    ; 140             ;
+;     -- 1 input functions                    ; 58              ;
+;     -- 0 input functions                    ; 0               ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 369             ;
+;     -- arithmetic mode                      ; 181             ;
+;     -- qfbk mode                            ; 0               ;
+;     -- register cascade mode                ; 0               ;
+;     -- synchronous clear/load mode          ; 1               ;
+;     -- asynchronous clear/load mode         ; 88              ;
+;                                             ;                 ;
+; Total registers                             ; 131             ;
+; Total logic cells in carry chains           ; 213             ;
+; I/O pins                                    ; 18              ;
+; Maximum fan-out node                        ; MAE:uMAE|H_FIFO ;
+; Maximum fan-out                             ; 108             ;
+; Total fan-out                               ; 1572            ;
+; Average fan-out                             ; 2.77            ;
++---------------------------------------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                         ;
++---------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                  ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                                     ; Entity Name     ; Library Name ;
++---------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |Filtre_FIR                                 ; 550 (0)     ; 131          ; 0          ; 18   ; 0            ; 419 (0)      ; 93 (0)            ; 38 (0)           ; 213 (0)         ; 0 (0)      ; |Filtre_FIR                                                                                                                             ; Filtre_FIR      ; work         ;
+;    |DIV:uDIV|                               ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |Filtre_FIR|DIV:uDIV                                                                                                                    ; DIV             ; work         ;
+;    |FIFO:uFIFO|                             ; 64 (64)     ; 64           ; 0          ; 0    ; 0            ; 0 (0)        ; 64 (64)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Filtre_FIR|FIFO:uFIFO                                                                                                                  ; FIFO            ; work         ;
+;    |MAC:uMAC|                               ; 202 (112)   ; 44           ; 0          ; 0    ; 0            ; 158 (68)     ; 29 (29)           ; 15 (15)          ; 82 (31)         ; 0 (0)      ; |Filtre_FIR|MAC:uMAC                                                                                                                    ; MAC             ; work         ;
+;       |lpm_mult:Mult0|                      ; 90 (0)      ; 0            ; 0          ; 0    ; 0            ; 90 (0)       ; 0 (0)             ; 0 (0)            ; 51 (0)          ; 0 (0)      ; |Filtre_FIR|MAC:uMAC|lpm_mult:Mult0                                                                                                     ; lpm_mult        ; work         ;
+;          |mult_ies:auto_generated|          ; 90 (90)     ; 0            ; 0          ; 0    ; 0            ; 90 (90)      ; 0 (0)             ; 0 (0)            ; 51 (51)         ; 0 (0)      ; |Filtre_FIR|MAC:uMAC|lpm_mult:Mult0|mult_ies:auto_generated                                                                             ; mult_ies        ; work         ;
+;    |MAE:uMAE|                               ; 20 (20)     ; 11           ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 11 (11)          ; 0 (0)           ; 0 (0)      ; |Filtre_FIR|MAE:uMAE                                                                                                                    ; MAE             ; work         ;
+;    |REG:uREG|                               ; 260 (8)     ; 8            ; 0          ; 0    ; 0            ; 252 (0)      ; 0 (0)             ; 8 (8)            ; 131 (0)         ; 0 (0)      ; |Filtre_FIR|REG:uREG                                                                                                                    ; REG             ; work         ;
+;       |lpm_divide:Div0|                     ; 252 (0)     ; 0            ; 0          ; 0    ; 0            ; 252 (0)      ; 0 (0)             ; 0 (0)            ; 131 (0)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0                                                                                                    ; lpm_divide      ; work         ;
+;          |lpm_divide_8co:auto_generated|    ; 252 (0)     ; 0            ; 0          ; 0    ; 0            ; 252 (0)      ; 0 (0)             ; 0 (0)            ; 131 (0)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated                                                                      ; lpm_divide_8co  ; work         ;
+;             |abs_divider_obg:divider|       ; 252 (0)     ; 0            ; 0          ; 0    ; 0            ; 252 (0)      ; 0 (0)             ; 0 (0)            ; 131 (0)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider                                              ; abs_divider_obg ; work         ;
+;                |add_sub_vte:compl_add_quot| ; 9 (9)       ; 0            ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 9 (9)           ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|add_sub_vte:compl_add_quot                   ; add_sub_vte     ; work         ;
+;                |alt_u_div_pie:divider|      ; 226 (120)   ; 0            ; 0          ; 0    ; 0            ; 226 (120)    ; 0 (0)             ; 0 (0)            ; 106 (0)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider                        ; alt_u_div_pie   ; work         ;
+;                   |add_sub_n4c:add_sub_5|   ; 9 (9)       ; 0            ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 9 (9)           ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_n4c:add_sub_5  ; add_sub_n4c     ; work         ;
+;                   |add_sub_o4c:add_sub_6|   ; 9 (9)       ; 0            ; 0          ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 9 (9)           ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_o4c:add_sub_6  ; add_sub_o4c     ; work         ;
+;                   |add_sub_p4c:add_sub_10|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_10 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_11|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_11 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_12|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_12 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_13|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_13 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_14|  ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_14 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_15|  ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 8 (8)           ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_15 ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_7|   ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_7  ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_8|   ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_8  ; add_sub_p4c     ; work         ;
+;                   |add_sub_p4c:add_sub_9|   ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 10 (10)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|alt_u_div_pie:divider|add_sub_p4c:add_sub_9  ; add_sub_p4c     ; work         ;
+;                |lpm_abs_vb9:my_abs_num|     ; 17 (17)     ; 0            ; 0          ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 0 (0)            ; 16 (16)         ; 0 (0)      ; |Filtre_FIR|REG:uREG|lpm_divide:Div0|lpm_divide_8co:auto_generated|abs_divider_obg:divider|lpm_abs_vb9:my_abs_num                       ; lpm_abs_vb9     ; work         ;
++---------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Filtre_FIR|MAE:uMAE|etat                                                                                                                               ;
++--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name         ; etat.ETAT_10 ; etat.ETAT_9 ; etat.ETAT_8 ; etat.ETAT_7 ; etat.ETAT_6 ; etat.ETAT_5 ; etat.ETAT_4 ; etat.ETAT_3 ; etat.ETAT_2 ; etat.ETAT_1 ; etat.ETAT_0 ;
++--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; etat.ETAT_0  ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; etat.ETAT_1  ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; etat.ETAT_2  ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; etat.ETAT_3  ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; etat.ETAT_4  ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_5  ; 0            ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_6  ; 0            ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_7  ; 0            ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_8  ; 0            ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_9  ; 0            ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; etat.ETAT_10 ; 1            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
++--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; MAC:uMAC|coeff[0]                     ; Stuck at VCC due to stuck port data_in ;
+; MAC:uMAC|coeff[1,3,4]                 ; Merged with MAC:uMAC|coeff[5]          ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 131   ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 84    ;
+; Number of registers using Asynchronous Load  ; 4     ;
+; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; REG:uREG|sortie[0]                     ; 1       ;
+; REG:uREG|sortie[7]                     ; 1       ;
+; MAC:uMAC|tamp[15]                      ; 24      ;
+; MAC:uMAC|produit[15]                   ; 3       ;
+; MAC:uMAC|coeff[7]                      ; 9       ;
+; MAC:uMAC|valeur[7]                     ; 14      ;
+; MAC:uMAC|tamp[0]                       ; 1       ;
+; MAC:uMAC|valeur[0]                     ; 1       ;
+; MAC:uMAC|produit[0]                    ; 1       ;
+; Total number of inverted registers = 9 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |Filtre_FIR|MAC:uMAC|valeur[7] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Filtre_FIR|MAE:uMAE|indice[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: REG:uREG|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                         ;
+; LPM_WIDTHD             ; 7              ; Untyped                         ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                         ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                         ;
+; LPM_PIPELINE           ; 0              ; Untyped                         ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                         ;
+; CBXI_PARAMETER         ; lpm_divide_8co ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: MAC:uMAC|lpm_mult:Mult0        ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8        ; Untyped             ;
+; LPM_WIDTHB                                     ; 8        ; Untyped             ;
+; LPM_WIDTHP                                     ; 16       ; Untyped             ;
+; LPM_WIDTHR                                     ; 16       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX V    ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_ies ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                  ;
++---------------------------------------+-------------------------+
+; Name                                  ; Value                   ;
++---------------------------------------+-------------------------+
+; Number of entity instances            ; 1                       ;
+; Entity Instance                       ; MAC:uMAC|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                       ;
+;     -- LPM_WIDTHB                     ; 8                       ;
+;     -- LPM_WIDTHP                     ; 16                      ;
+;     -- LPM_REPRESENTATION             ; SIGNED                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                      ;
+;     -- USE_EAB                        ; OFF                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                      ;
++---------------------------------------+-------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 17 11:33:06 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Filtre_FIR -c Filtre_FIR
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file filtre_fir_tb.vhdl
+    Info (12022): Found design unit 1: Filtre_FIR_tb-tb File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_tb.vhdl Line: 32
+    Info (12023): Found entity 1: Filtre_FIR_tb File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_tb.vhdl Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file filtre_fir.vhdl
+    Info (12022): Found design unit 1: Filtre_FIR-arch_Filtre_FIR File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 33
+    Info (12023): Found entity 1: Filtre_FIR File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 20
+Info (12021): Found 1 design units, including 0 entities, in source file filtre_fir_package.vhdl
+    Info (12022): Found design unit 1: FIR_pkg File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR_package.vhdl Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file module_div.vhdl
+    Info (12022): Found design unit 1: DIV-arch_DIV File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_DIV.vhdl Line: 32
+    Info (12023): Found entity 1: DIV File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_DIV.vhdl Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file module_mae.vhdl
+    Info (12022): Found design unit 1: MAE-arch_MAE File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAE.vhdl Line: 36
+    Info (12023): Found entity 1: MAE File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAE.vhdl Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file module_fifo.vhdl
+    Info (12022): Found design unit 1: FIFO-arch_FIFO File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_FIFO.vhdl Line: 33
+    Info (12023): Found entity 1: FIFO File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_FIFO.vhdl Line: 21
+Warning (12090): Entity "MUX" obtained from "Module_MUX.vhdl" instead of from Quartus Prime megafunction library File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MUX.vhdl Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file module_mux.vhdl
+    Info (12022): Found design unit 1: MUX-arch_MUX File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MUX.vhdl Line: 32
+    Info (12023): Found entity 1: MUX File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MUX.vhdl Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file module_mac.vhdl
+    Info (12022): Found design unit 1: MAC-arch_MAC File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl Line: 38
+    Info (12023): Found entity 1: MAC File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file module_reg.vhdl
+    Info (12022): Found design unit 1: REG-arch_REG File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl Line: 33
+    Info (12023): Found entity 1: REG File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl Line: 20
+Info (12127): Elaborating entity "Filtre_FIR" for the top level hierarchy
+Info (12128): Elaborating entity "DIV" for hierarchy "DIV:uDIV" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 47
+Info (12128): Elaborating entity "MAE" for hierarchy "MAE:uMAE" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 53
+Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:uFIFO" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 62
+Info (12128): Elaborating entity "MAC" for hierarchy "MAC:uMAC" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 77
+Info (12128): Elaborating entity "REG" for hierarchy "REG:uREG" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Filtre_FIR.vhdl Line: 84
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__0_" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__0_" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__0_" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__0_" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__7_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__6_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__5_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__4_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__3_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__2_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__1_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_7__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_6__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_5__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_4__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_3__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_2__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_1__0_" is missing source, defaulting to GND
+    Warning (12110): Net "global.bp.work.FIR_pkg.RAM_Entree_0__0_" is missing source, defaulting to GND
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "REG:uREG|Div0" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl Line: 40
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "MAC:uMAC|Mult0" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl Line: 53
+Info (12130): Elaborated megafunction instantiation "REG:uREG|lpm_divide:Div0" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl Line: 40
+Info (12133): Instantiated megafunction "REG:uREG|lpm_divide:Div0" with the following parameter: File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_REG.vhdl Line: 40
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_8co.tdf
+    Info (12023): Found entity 1: lpm_divide_8co File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_divide_8co.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_obg.tdf
+    Info (12023): Found entity 1: abs_divider_obg File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/abs_divider_obg.tdf Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_pie.tdf
+    Info (12023): Found entity 1: alt_u_div_pie File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/alt_u_div_pie.tdf Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_i4c.tdf
+    Info (12023): Found entity 1: add_sub_i4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_i4c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_j4c.tdf
+    Info (12023): Found entity 1: add_sub_j4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_j4c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_p4c.tdf
+    Info (12023): Found entity 1: add_sub_p4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_p4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_k4c.tdf
+    Info (12023): Found entity 1: add_sub_k4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_k4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_l4c.tdf
+    Info (12023): Found entity 1: add_sub_l4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_l4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_m4c.tdf
+    Info (12023): Found entity 1: add_sub_m4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_m4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_n4c.tdf
+    Info (12023): Found entity 1: add_sub_n4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_n4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_o4c.tdf
+    Info (12023): Found entity 1: add_sub_o4c File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_o4c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_fa9.tdf
+    Info (12023): Found entity 1: lpm_abs_fa9 File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_abs_fa9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_vb9.tdf
+    Info (12023): Found entity 1: lpm_abs_vb9 File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/lpm_abs_vb9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vte.tdf
+    Info (12023): Found entity 1: add_sub_vte File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_vte.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_fse.tdf
+    Info (12023): Found entity 1: add_sub_fse File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/add_sub_fse.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "MAC:uMAC|lpm_mult:Mult0" File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl Line: 53
+Info (12133): Instantiated megafunction "MAC:uMAC|lpm_mult:Mult0" with the following parameter: File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/Module_MAC.vhdl Line: 53
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ies.tdf
+    Info (12023): Found entity 1: mult_ies File: D:/IUT/BUT 3/Complement FPGA/TP5_Filtre_FIR_final/TP5_Filtre_FIR/db/mult_ies.tdf Line: 29
+Info (13014): Ignored 94 buffer(s)
+    Info (13019): Ignored 94 SOFT buffer(s)
+Info (21057): Implemented 568 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 550 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 327 warnings
+    Info: Peak virtual memory: 4779 megabytes
+    Info: Processing ended: Sun Dec 17 11:33:22 2023
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:33
+
+

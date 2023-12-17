@@ -1,0 +1,733 @@
+Timing Analyzer report for Filtre_FIR
+Sun Dec 17 11:33:34 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'DIV:uDIV|horloge'
+ 12. Setup: 'H_10MHz'
+ 13. Hold: 'DIV:uDIV|horloge'
+ 14. Hold: 'H_10MHz'
+ 15. Recovery: 'DIV:uDIV|horloge'
+ 16. Removal: 'DIV:uDIV|horloge'
+ 17. Setup Transfers
+ 18. Hold Transfers
+ 19. Recovery Transfers
+ 20. Removal Transfers
+ 21. Report TCCS
+ 22. Report RSKM
+ 23. Unconstrained Paths Summary
+ 24. Clock Status Summary
+ 25. Unconstrained Input Ports
+ 26. Unconstrained Output Ports
+ 27. Unconstrained Input Ports
+ 28. Unconstrained Output Ports
+ 29. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; Filtre_FIR                                          ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M570ZF256C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                             ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+; Clock Name       ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets              ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+; DIV:uDIV|horloge ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { DIV:uDIV|horloge } ;
+; H_10MHz          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { H_10MHz }          ;
++------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------+
+
+
++--------------------------------------------------------+
+; Fmax Summary                                           ;
++------------+-----------------+------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name       ; Note ;
++------------+-----------------+------------------+------+
+; 5.15 MHz   ; 5.15 MHz        ; DIV:uDIV|horloge ;      ;
+; 135.74 MHz ; 135.74 MHz      ; H_10MHz          ;      ;
++------------+-----------------+------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------+
+; Setup Summary                               ;
++------------------+----------+---------------+
+; Clock            ; Slack    ; End Point TNS ;
++------------------+----------+---------------+
+; DIV:uDIV|horloge ; -193.243 ; -3497.317     ;
+; H_10MHz          ; -6.367   ; -20.357       ;
++------------------+----------+---------------+
+
+
++-------------------------------------------+
+; Hold Summary                              ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; DIV:uDIV|horloge ; -8.687 ; -54.002       ;
+; H_10MHz          ; 1.253  ; 0.000         ;
++------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Recovery Summary                          ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; DIV:uDIV|horloge ; -7.813 ; -81.394       ;
++------------------+--------+---------------+
+
+
++------------------------------------------+
+; Removal Summary                          ;
++------------------+-------+---------------+
+; Clock            ; Slack ; End Point TNS ;
++------------------+-------+---------------+
+; DIV:uDIV|horloge ; 0.814 ; 0.000         ;
++------------------+-------+---------------+
+
+
++-------------------------------------------+
+; Minimum Pulse Width Summary               ;
++------------------+--------+---------------+
+; Clock            ; Slack  ; End Point TNS ;
++------------------+--------+---------------+
+; H_10MHz          ; -2.289 ; -2.289        ;
+; DIV:uDIV|horloge ; 0.161  ; 0.000         ;
++------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'DIV:uDIV|horloge'                                                                                                        ;
++----------+-------------------+--------------------+------------------+------------------+--------------+------------+------------+
+; Slack    ; From Node         ; To Node            ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++----------+-------------------+--------------------+------------------+------------------+--------------+------------+------------+
+; -193.243 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 210.955    ;
+; -192.948 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 210.660    ;
+; -192.857 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 210.569    ;
+; -192.307 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 210.019    ;
+; -191.640 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 208.799    ;
+; -191.485 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 208.644    ;
+; -190.475 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 207.634    ;
+; -190.270 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 207.982    ;
+; -189.975 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 207.687    ;
+; -189.884 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 207.596    ;
+; -189.334 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 207.046    ;
+; -188.667 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 205.826    ;
+; -188.512 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 205.671    ;
+; -188.012 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 205.724    ;
+; -187.717 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 205.429    ;
+; -187.702 ; MAC:uMAC|tamp[0]  ; REG:uREG|sortie[0] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.486     ; 204.867    ;
+; -187.626 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 205.338    ;
+; -187.502 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 204.661    ;
+; -187.076 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 204.788    ;
+; -186.409 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 203.568    ;
+; -186.254 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 203.413    ;
+; -185.674 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 203.386    ;
+; -185.379 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 203.091    ;
+; -185.288 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 203.000    ;
+; -185.244 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 202.403    ;
+; -184.738 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 202.450    ;
+; -184.729 ; MAC:uMAC|tamp[15] ; REG:uREG|sortie[0] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.486     ; 201.894    ;
+; -184.092 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.804    ;
+; -184.071 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 201.230    ;
+; -184.031 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.743    ;
+; -183.916 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 201.075    ;
+; -183.823 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.535    ;
+; -183.797 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.509    ;
+; -183.736 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.448    ;
+; -183.706 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.418    ;
+; -183.645 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.357    ;
+; -183.631 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.343    ;
+; -183.528 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.240    ;
+; -183.475 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.187    ;
+; -183.460 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.172    ;
+; -183.447 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.159    ;
+; -183.437 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.149    ;
+; -183.339 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.051    ;
+; -183.336 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 201.048    ;
+; -183.245 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.957    ;
+; -183.191 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.903    ;
+; -183.180 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.892    ;
+; -183.165 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.877    ;
+; -183.156 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.868    ;
+; -183.152 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.864    ;
+; -183.095 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.807    ;
+; -183.089 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.801    ;
+; -183.074 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.786    ;
+; -183.061 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.773    ;
+; -183.044 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.756    ;
+; -182.953 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.665    ;
+; -182.906 ; MAC:uMAC|tamp[8]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 200.065    ;
+; -182.896 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.608    ;
+; -182.887 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.599    ;
+; -182.805 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.517    ;
+; -182.695 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.407    ;
+; -182.539 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.251    ;
+; -182.524 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.236    ;
+; -182.511 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.223    ;
+; -182.489 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.648    ;
+; -182.471 ; MAC:uMAC|tamp[10] ; REG:uREG|sortie[0] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.486     ; 199.636    ;
+; -182.428 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.587    ;
+; -182.403 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 200.115    ;
+; -182.334 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.493    ;
+; -182.273 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.432    ;
+; -182.255 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 199.967    ;
+; -182.220 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.379    ;
+; -182.107 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[6] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 199.819    ;
+; -182.065 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.224    ;
+; -182.028 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.187    ;
+; -181.873 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.032    ;
+; -181.872 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.031    ;
+; -181.857 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.016    ;
+; -181.844 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 199.003    ;
+; -181.812 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[5] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 199.524    ;
+; -181.736 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.895    ;
+; -181.721 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[7] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 199.433    ;
+; -181.717 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.876    ;
+; -181.702 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.861    ;
+; -181.689 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.848    ;
+; -181.588 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.747    ;
+; -181.581 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.740    ;
+; -181.433 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.592    ;
+; -181.324 ; MAC:uMAC|tamp[9]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.483    ;
+; -181.263 ; MAC:uMAC|tamp[4]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.422    ;
+; -181.171 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[4] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 17.033     ; 198.883    ;
+; -181.055 ; MAC:uMAC|tamp[5]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.214    ;
+; -180.863 ; MAC:uMAC|tamp[6]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 198.022    ;
+; -180.707 ; MAC:uMAC|tamp[7]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.866    ;
+; -180.692 ; MAC:uMAC|tamp[3]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.851    ;
+; -180.679 ; MAC:uMAC|tamp[1]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.838    ;
+; -180.571 ; MAC:uMAC|tamp[2]  ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.730    ;
+; -180.504 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[3] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.663    ;
+; -180.423 ; MAC:uMAC|tamp[11] ; REG:uREG|sortie[1] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.582    ;
+; -180.349 ; MAC:uMAC|tamp[12] ; REG:uREG|sortie[2] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 16.480     ; 197.508    ;
++----------+-------------------+--------------------+------------------+------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'H_10MHz'                                                                                                                   ;
++--------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock     ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+; -6.367 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 7.046      ;
+; -4.664 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 5.343      ;
+; -4.663 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 5.342      ;
+; -4.663 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 5.342      ;
+; -4.662 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 5.341      ;
+; -3.766 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 4.445      ;
+; -3.154 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.833      ;
+; -3.153 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.832      ;
+; -3.152 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.831      ;
+; -2.775 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.454      ;
+; -2.774 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.453      ;
+; -2.773 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 1.000        ; 0.000      ; 3.452      ;
+; -1.113 ; DIV:uDIV|horloge       ; DIV:uDIV|horloge       ; DIV:uDIV|horloge ; H_10MHz     ; 0.500        ; 4.832      ; 6.618      ;
+; -0.613 ; DIV:uDIV|horloge       ; DIV:uDIV|horloge       ; DIV:uDIV|horloge ; H_10MHz     ; 1.000        ; 4.832      ; 6.618      ;
++--------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'DIV:uDIV|horloge'                                                                                                                          ;
++--------+-----------------------------+-----------------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+------------------+------------------+--------------+------------+------------+
+; -8.687 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[7]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 17.033     ; 8.385      ;
+; -8.680 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[6]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 17.033     ; 8.392      ;
+; -8.679 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[4]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 17.033     ; 8.393      ;
+; -8.678 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[5]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 17.033     ; 8.394      ;
+; -6.006 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[2]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 16.480     ; 10.513     ;
+; -4.622 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[0]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 16.486     ; 11.903     ;
+; -4.327 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[1]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 16.480     ; 12.192     ;
+; -4.323 ; MAC:uMAC|tamp[15]           ; REG:uREG|sortie[3]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 16.480     ; 12.196     ;
+; 3.106  ; FIFO:uFIFO|RAM_Entree_6__1_ ; FIFO:uFIFO|RAM_Entree_7__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.145      ;
+; 3.116  ; FIFO:uFIFO|RAM_Entree_6__2_ ; FIFO:uFIFO|RAM_Entree_7__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.155      ;
+; 3.130  ; FIFO:uFIFO|RAM_Entree_2__6_ ; FIFO:uFIFO|RAM_Entree_3__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.169      ;
+; 3.131  ; FIFO:uFIFO|RAM_Entree_5__7_ ; FIFO:uFIFO|RAM_Entree_6__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.170      ;
+; 3.132  ; FIFO:uFIFO|RAM_Entree_6__5_ ; FIFO:uFIFO|RAM_Entree_7__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.171      ;
+; 3.134  ; FIFO:uFIFO|RAM_Entree_6__7_ ; FIFO:uFIFO|RAM_Entree_7__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.173      ;
+; 3.134  ; FIFO:uFIFO|RAM_Entree_6__4_ ; FIFO:uFIFO|RAM_Entree_7__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.173      ;
+; 3.134  ; FIFO:uFIFO|RAM_Entree_1__5_ ; FIFO:uFIFO|RAM_Entree_2__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.173      ;
+; 3.135  ; FIFO:uFIFO|RAM_Entree_5__3_ ; FIFO:uFIFO|RAM_Entree_6__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.174      ;
+; 3.140  ; FIFO:uFIFO|RAM_Entree_2__4_ ; FIFO:uFIFO|RAM_Entree_3__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.179      ;
+; 3.141  ; FIFO:uFIFO|RAM_Entree_5__5_ ; FIFO:uFIFO|RAM_Entree_6__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.180      ;
+; 3.144  ; FIFO:uFIFO|RAM_Entree_1__4_ ; FIFO:uFIFO|RAM_Entree_2__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.183      ;
+; 3.146  ; FIFO:uFIFO|RAM_Entree_2__0_ ; FIFO:uFIFO|RAM_Entree_3__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.185      ;
+; 3.147  ; FIFO:uFIFO|RAM_Entree_5__6_ ; FIFO:uFIFO|RAM_Entree_6__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.186      ;
+; 3.147  ; FIFO:uFIFO|RAM_Entree_0__2_ ; FIFO:uFIFO|RAM_Entree_1__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.186      ;
+; 3.148  ; FIFO:uFIFO|RAM_Entree_5__4_ ; FIFO:uFIFO|RAM_Entree_6__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.187      ;
+; 3.153  ; FIFO:uFIFO|RAM_Entree_5__1_ ; FIFO:uFIFO|RAM_Entree_6__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.192      ;
+; 3.156  ; FIFO:uFIFO|RAM_Entree_5__0_ ; FIFO:uFIFO|RAM_Entree_6__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.195      ;
+; 3.158  ; FIFO:uFIFO|RAM_Entree_3__4_ ; FIFO:uFIFO|RAM_Entree_4__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.197      ;
+; 3.159  ; FIFO:uFIFO|RAM_Entree_0__1_ ; FIFO:uFIFO|RAM_Entree_1__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.198      ;
+; 3.161  ; FIFO:uFIFO|RAM_Entree_6__6_ ; FIFO:uFIFO|RAM_Entree_7__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.200      ;
+; 3.367  ; FIFO:uFIFO|RAM_Entree_2__7_ ; FIFO:uFIFO|RAM_Entree_3__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.406      ;
+; 3.368  ; FIFO:uFIFO|RAM_Entree_2__1_ ; FIFO:uFIFO|RAM_Entree_3__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.407      ;
+; 3.378  ; FIFO:uFIFO|RAM_Entree_2__3_ ; FIFO:uFIFO|RAM_Entree_3__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.417      ;
+; 3.380  ; FIFO:uFIFO|RAM_Entree_3__5_ ; FIFO:uFIFO|RAM_Entree_4__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.419      ;
+; 3.394  ; FIFO:uFIFO|RAM_Entree_3__3_ ; FIFO:uFIFO|RAM_Entree_4__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.433      ;
+; 3.397  ; FIFO:uFIFO|RAM_Entree_4__5_ ; FIFO:uFIFO|RAM_Entree_5__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.436      ;
+; 3.397  ; FIFO:uFIFO|RAM_Entree_4__0_ ; FIFO:uFIFO|RAM_Entree_5__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.436      ;
+; 3.399  ; FIFO:uFIFO|RAM_Entree_4__4_ ; FIFO:uFIFO|RAM_Entree_5__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.438      ;
+; 3.404  ; FIFO:uFIFO|RAM_Entree_2__2_ ; FIFO:uFIFO|RAM_Entree_3__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.443      ;
+; 3.409  ; FIFO:uFIFO|RAM_Entree_3__0_ ; FIFO:uFIFO|RAM_Entree_4__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.448      ;
+; 3.412  ; FIFO:uFIFO|RAM_Entree_4__3_ ; FIFO:uFIFO|RAM_Entree_5__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.451      ;
+; 3.427  ; FIFO:uFIFO|RAM_Entree_3__1_ ; FIFO:uFIFO|RAM_Entree_4__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.466      ;
+; 3.428  ; MAE:uMAE|etat.ETAT_1        ; MAE:uMAE|etat.ETAT_2        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.467      ;
+; 3.430  ; FIFO:uFIFO|RAM_Entree_3__6_ ; FIFO:uFIFO|RAM_Entree_4__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.469      ;
+; 3.430  ; FIFO:uFIFO|RAM_Entree_4__1_ ; FIFO:uFIFO|RAM_Entree_5__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.469      ;
+; 3.432  ; FIFO:uFIFO|RAM_Entree_4__7_ ; FIFO:uFIFO|RAM_Entree_5__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.471      ;
+; 3.432  ; FIFO:uFIFO|RAM_Entree_3__2_ ; FIFO:uFIFO|RAM_Entree_4__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.471      ;
+; 3.434  ; MAE:uMAE|etat.ETAT_4        ; MAE:uMAE|etat.ETAT_5        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.473      ;
+; 3.437  ; FIFO:uFIFO|RAM_Entree_4__6_ ; FIFO:uFIFO|RAM_Entree_5__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.476      ;
+; 3.797  ; MAE:uMAE|etat.ETAT_0        ; MAE:uMAE|etat.ETAT_1        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 3.836      ;
+; 4.003  ; FIFO:uFIFO|RAM_Entree_7__5_ ; MAC:uMAC|valeur[5]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; -0.004     ; 4.038      ;
+; 4.144  ; FIFO:uFIFO|RAM_Entree_1__3_ ; FIFO:uFIFO|RAM_Entree_2__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.183      ;
+; 4.149  ; FIFO:uFIFO|RAM_Entree_1__1_ ; FIFO:uFIFO|RAM_Entree_2__1_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.188      ;
+; 4.172  ; FIFO:uFIFO|RAM_Entree_1__2_ ; FIFO:uFIFO|RAM_Entree_2__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.211      ;
+; 4.177  ; FIFO:uFIFO|RAM_Entree_1__7_ ; FIFO:uFIFO|RAM_Entree_2__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.216      ;
+; 4.178  ; FIFO:uFIFO|RAM_Entree_1__6_ ; FIFO:uFIFO|RAM_Entree_2__6_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.217      ;
+; 4.243  ; FIFO:uFIFO|RAM_Entree_0__0_ ; FIFO:uFIFO|RAM_Entree_1__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.282      ;
+; 4.393  ; FIFO:uFIFO|RAM_Entree_2__5_ ; MAC:uMAC|valeur[5]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; -0.004     ; 4.428      ;
+; 4.501  ; MAE:uMAE|etat.ETAT_2        ; MAE:uMAE|etat.ETAT_3        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.540      ;
+; 4.514  ; MAE:uMAE|etat.ETAT_8        ; MAE:uMAE|etat.ETAT_9        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 4.553      ;
+; 5.227  ; FIFO:uFIFO|RAM_Entree_2__0_ ; MAC:uMAC|valeur[0]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; -0.004     ; 5.262      ;
+; 5.265  ; MAE:uMAE|etat.ETAT_10       ; MAE:uMAE|etat.ETAT_1        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.304      ;
+; 5.434  ; FIFO:uFIFO|RAM_Entree_7__4_ ; MAC:uMAC|valeur[4]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; -0.004     ; 5.469      ;
+; 5.504  ; MAE:uMAE|etat.ETAT_6        ; MAE:uMAE|etat.ETAT_7        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.543      ;
+; 5.519  ; MAE:uMAE|etat.ETAT_5        ; MAE:uMAE|etat.ETAT_6        ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.558      ;
+; 5.564  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[5]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.628     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[6]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[7]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[7]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[5]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[6]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[1]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.783  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[2]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.847     ;
+; 5.787  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[4]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.851     ;
+; 5.787  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[0]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.851     ;
+; 5.820  ; FIFO:uFIFO|RAM_Entree_0__5_ ; FIFO:uFIFO|RAM_Entree_1__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.859      ;
+; 5.848  ; FIFO:uFIFO|RAM_Entree_2__5_ ; FIFO:uFIFO|RAM_Entree_3__5_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.887      ;
+; 5.869  ; FIFO:uFIFO|RAM_Entree_0__7_ ; FIFO:uFIFO|RAM_Entree_1__7_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 5.908      ;
+; 5.887  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[2]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.951     ;
+; 5.887  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[3]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.951     ;
+; 5.887  ; DIV:uDIV|horloge            ; MAC:uMAC|produit[0]         ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 16.951     ;
+; 6.064  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[5]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.628     ;
+; 6.273  ; MAE:uMAE|etat.ETAT_9        ; MAE:uMAE|etat.ETAT_10       ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.312      ;
+; 6.274  ; FIFO:uFIFO|RAM_Entree_5__2_ ; FIFO:uFIFO|RAM_Entree_6__2_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.313      ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[6]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[7]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[7]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[5]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[6]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[1]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.283  ; DIV:uDIV|horloge            ; MAC:uMAC|coeff[2]           ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.847     ;
+; 6.287  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[4]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.851     ;
+; 6.287  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[0]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.851     ;
+; 6.319  ; FIFO:uFIFO|RAM_Entree_6__3_ ; FIFO:uFIFO|RAM_Entree_7__3_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.358      ;
+; 6.387  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[2]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.951     ;
+; 6.387  ; DIV:uDIV|horloge            ; MAC:uMAC|valeur[3]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.951     ;
+; 6.387  ; DIV:uDIV|horloge            ; MAC:uMAC|produit[0]         ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 16.951     ;
+; 6.409  ; FIFO:uFIFO|RAM_Entree_7__0_ ; MAC:uMAC|valeur[0]          ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; -0.004     ; 6.444      ;
+; 6.452  ; FIFO:uFIFO|RAM_Entree_0__4_ ; FIFO:uFIFO|RAM_Entree_1__4_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.491      ;
+; 6.461  ; FIFO:uFIFO|RAM_Entree_1__0_ ; FIFO:uFIFO|RAM_Entree_2__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.500      ;
+; 6.539  ; FIFO:uFIFO|RAM_Entree_6__0_ ; FIFO:uFIFO|RAM_Entree_7__0_ ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 0.000      ; 6.578      ;
++--------+-----------------------------+-----------------------------+------------------+------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'H_10MHz'                                                                                                                   ;
++-------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock     ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+; 1.253 ; DIV:uDIV|horloge       ; DIV:uDIV|horloge       ; DIV:uDIV|horloge ; H_10MHz     ; 0.000        ; 4.832      ; 6.618      ;
+; 1.753 ; DIV:uDIV|horloge       ; DIV:uDIV|horloge       ; DIV:uDIV|horloge ; H_10MHz     ; -0.500       ; 4.832      ; 6.618      ;
+; 3.413 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.452      ;
+; 3.414 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.453      ;
+; 3.415 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.454      ;
+; 3.792 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.831      ;
+; 3.793 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.832      ;
+; 3.794 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 3.833      ;
+; 4.406 ; DIV:uDIV|decompteur[2] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 4.445      ;
+; 5.302 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 5.341      ;
+; 5.303 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|horloge       ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 5.342      ;
+; 5.303 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[0] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 5.342      ;
+; 5.304 ; DIV:uDIV|decompteur[1] ; DIV:uDIV|decompteur[2] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 5.343      ;
+; 7.007 ; DIV:uDIV|decompteur[0] ; DIV:uDIV|decompteur[1] ; H_10MHz          ; H_10MHz     ; 0.000        ; 0.000      ; 7.046      ;
++-------+------------------------+------------------------+------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'DIV:uDIV|horloge'                                                                                                     ;
++--------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node           ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+; -7.813 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 12.169     ;
+; -7.781 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 12.137     ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -4.700 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 3.677      ; 9.056      ;
+; -3.787 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 14.991     ;
+; -3.755 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 14.959     ;
+; -3.287 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 14.991     ;
+; -3.255 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 14.959     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.674 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.500        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
+; -0.174 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 1.000        ; 10.531     ; 11.878     ;
++--------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'DIV:uDIV|horloge'                                                                                                     ;
++-------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+; Slack ; From Node            ; To Node           ; Launch Clock     ; Latch Clock      ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 0.814 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 1.314 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 11.878     ;
+; 3.895 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 14.959     ;
+; 3.927 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 10.531     ; 14.991     ;
+; 4.395 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 14.959     ;
+; 4.427 ; DIV:uDIV|horloge     ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; -0.500       ; 10.531     ; 14.991     ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[12] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[14] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[7]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[13] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[8]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[9]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[10] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[11] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[6]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[5]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[4]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[3]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[2]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 5.340 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[1]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 9.056      ;
+; 8.421 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[15] ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 12.137     ;
+; 8.453 ; MAE:uMAE|etat.ETAT_1 ; MAC:uMAC|tamp[0]  ; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 0.000        ; 3.677      ; 12.169     ;
++-------+----------------------+-------------------+------------------+------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------+
+; Setup Transfers                                                                     ;
++------------------+------------------+--------------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+--------------+----------+----------+----------+
+; DIV:uDIV|horloge ; DIV:uDIV|horloge ; > 2147483647 ; 28       ; 0        ; 0        ;
+; DIV:uDIV|horloge ; H_10MHz          ; 1            ; 1        ; 0        ; 0        ;
+; H_10MHz          ; H_10MHz          ; 12           ; 0        ; 0        ; 0        ;
++------------------+------------------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------+
+; Hold Transfers                                                                      ;
++------------------+------------------+--------------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+--------------+----------+----------+----------+
+; DIV:uDIV|horloge ; DIV:uDIV|horloge ; > 2147483647 ; 28       ; 0        ; 0        ;
+; DIV:uDIV|horloge ; H_10MHz          ; 1            ; 1        ; 0        ; 0        ;
+; H_10MHz          ; H_10MHz          ; 12           ; 0        ; 0        ; 0        ;
++------------------+------------------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------+
+; Recovery Transfers                                                              ;
++------------------+------------------+----------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+----------+----------+----------+----------+
+; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 32       ; 16       ; 0        ; 0        ;
++------------------+------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------+
+; Removal Transfers                                                               ;
++------------------+------------------+----------+----------+----------+----------+
+; From Clock       ; To Clock         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------+------------------+----------+----------+----------+----------+
+; DIV:uDIV|horloge ; DIV:uDIV|horloge ; 32       ; 16       ; 0        ; 0        ;
++------------------+------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 9     ; 9    ;
+; Unconstrained Input Port Paths  ; 91    ; 91   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------------+
+; Clock Status Summary                                     ;
++------------------+------------------+------+-------------+
+; Target           ; Clock            ; Type ; Status      ;
++------------------+------------------+------+-------------+
+; DIV:uDIV|horloge ; DIV:uDIV|horloge ; Base ; Constrained ;
+; H_10MHz          ; H_10MHz          ; Base ; Constrained ;
++------------------+------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; RAZ        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; sortie[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[5]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[6]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[7]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; RAZ        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; entree[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; sortie[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[5]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[6]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sortie[7]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 17 11:33:32 2023
+Info: Command: quartus_sta Filtre_FIR -c Filtre_FIR
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Filtre_FIR.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name DIV:uDIV|horloge DIV:uDIV|horloge
+    Info (332105): create_clock -period 1.000 -name H_10MHz H_10MHz
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -193.243
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):  -193.243           -3497.317 DIV:uDIV|horloge 
+    Info (332119):    -6.367             -20.357 H_10MHz 
+Info (332146): Worst-case hold slack is -8.687
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.687             -54.002 DIV:uDIV|horloge 
+    Info (332119):     1.253               0.000 H_10MHz 
+Info (332146): Worst-case recovery slack is -7.813
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -7.813             -81.394 DIV:uDIV|horloge 
+Info (332146): Worst-case removal slack is 0.814
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.814               0.000 DIV:uDIV|horloge 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 H_10MHz 
+    Info (332119):     0.161               0.000 DIV:uDIV|horloge 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4687 megabytes
+    Info: Processing ended: Sun Dec 17 11:33:34 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
